@@ -1,442 +1,411 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Dela Cruz Portfolio ✨</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Pacifico&display=swap');
+<meta charset="UTF-8">
+<title>Dela Cruz Portfolio 🌿📱</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Courgette&display=swap');
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #ffdde1, #ee9ca7, #fad0c4, #ffb6c1);
-      background-size: 400% 400%;
-      animation: gradientMove 15s infinite alternate;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      min-height: 100vh;
-    }
+/* --- Body & Background --- */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #c5f1d6, #e6f3e1, #f0fff0, #dff7e5);
+  background-size: 400% 400%;
+  animation: gradientFlow 15s infinite alternate;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+@keyframes gradientFlow { 0% { background-position:0% 50%; } 100% { background-position:100% 50%; } }
 
-    @keyframes gradientMove {
-      0% { background-position: left; }
-      100% { background-position: right; }
-    }
+/* --- Floating Leaves --- */
+.leaf {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  background: url('https://cdn-icons-png.flaticon.com/512/765/765610.png') no-repeat center/contain;
+  opacity: 0.7;
+  animation: floatLeaves 14s linear infinite;
+  z-index: 0;
+  transition: transform 0.3s, filter 0.3s;
+}
+.leaf:hover {
+  transform: rotate(20deg) scale(1.2) translateY(-10px);
+  filter: drop-shadow(0 0 10px #32cd32);
+}
+@keyframes floatLeaves {
+  0% { transform: translateY(-50px) rotate(0deg); opacity:0;}
+  10% { opacity:1;}
+  100% { transform: translateY(110vh) rotate(360deg); opacity:0;}
+}
+.leaf:nth-child(1){left:5%; animation-delay:0s;}
+.leaf:nth-child(2){left:25%; animation-delay:3s; width:35px;}
+.leaf:nth-child(3){left:50%; animation-delay:6s;}
+.leaf:nth-child(4){left:70%; animation-delay:2s; width:30px;}
+.leaf:nth-child(5){left:85%; animation-delay:5s;}
 
-    .phone-frame {
-      background: rgba(255, 255, 255, 0.3);
-      backdrop-filter: blur(20px);
-      width: 380px;
-      border-radius: 45px;
-      box-shadow: 0 15px 50px rgba(255, 105, 180, 0.5);
-      overflow: hidden;
-      margin: 50px 0;
-      border: 2px solid rgba(255, 255, 255, 0.5);
-      transition: transform 0.5s ease;
-    }
+/* --- iPhone Frame --- */
+.iphone-frame {
+  width: 380px;
+  max-width: 95vw;
+  border-radius: 50px;
+  border: 2px solid rgba(50,205,50,0.3);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px) brightness(1.1);
+  box-shadow: 0 20px 50px rgba(144,238,144,0.3);
+  overflow: hidden;
+  margin: 50px 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 90vh; /* added */
+  overflow: hidden; /* added */
+}
 
-    .phone-frame:hover {
-      transform: scale(1.03) rotate(0.5deg);
-      box-shadow: 0 0 60px rgba(255, 182, 193, 0.9);
-    }
+/* --- iPhone Notch --- */
+.iphone-notch {
+  width: 120px;
+  height: 25px;
+  background: rgba(50,205,50,0.2);
+  border-radius: 20px 20px 0 0;
+  margin: 10px auto;
+}
 
-    header {
-      background: linear-gradient(90deg, #ff4da6, #ff7eb9, #ffa6c9);
-      color: white;
-      text-align: center;
-      padding: 20px 0;
-      border-bottom: 3px solid rgba(255, 255, 255, 0.3);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+/* --- Screen Content with Nature Background --- */
+.screen {
+  flex: 1;
+  overflow-y: scroll; /* added for scroll */
+  -webkit-overflow-scrolling: touch; /* smooth scroll */
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=600&q=80') center/cover no-repeat;
+  background-attachment: fixed; /* keeps background steady */
+  border-radius: 0 0 40px 40px;
+  box-shadow: inset 0 0 25px rgba(0,0,0,0.2);
+  position: relative;
+}
 
-    header h1 {
-      font-family: 'Pacifico', cursive;
-      font-size: 25px;
-      margin: 0;
-      letter-spacing: 1px;
-    }
+/* --- Overlay for readability --- */
+.screen::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 60px;
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(4px);
+  border-radius: 0 0 50px 50px;
+  z-index: 0;
+}
+.screen > * {
+  position: relative;
+  z-index: 1;
+}
 
-    nav {
-      display: flex;
-      justify-content: space-around;
-      background: rgba(255, 255, 255, 0.15);
-      padding: 10px 0;
-      backdrop-filter: blur(10px);
-    }
+/* --- Portfolio Name --- */
+.portfolio-name {
+  font-family: 'Courgette', cursive;
+  font-size: 28px;
+  color: #228b22;
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow: 0 0 15px rgba(34,139,34,0.6);
+}
 
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 15px;
-      transition: 0.3s;
-      position: relative;
-    }
+/* --- Sections Styling --- */
+section {
+  width: 90%;
+  margin: 15px 0;
+  padding: 20px;
+  background: rgba(240,255,240,0.8);
+  border-radius: 25px;
+  box-shadow: 0 5px 15px rgba(50,205,50,0.2);
+  text-align: center;
+  animation: fadeIn 0.8s ease-in;
+}
+@keyframes fadeIn { from{opacity:0; transform:translateY(15px);} to{opacity:1; transform:translateY(0);} }
+h2 {
+  color:#228b22;
+  border-bottom:2px solid #90ee90;
+  display:inline-block;
+  padding-bottom:5px;
+  margin-bottom:10px;
+}
 
-    nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -4px;
-      width: 0;
-      height: 2px;
-      background: #fff;
-      transition: 0.4s;
-    }
+/* --- Profile Image --- */
+#home img {
+  border-radius:50%;
+  width:140px;
+  height:140px;
+  box-shadow:0 0 25px rgba(144,238,144,0.6);
+  border:4px solid white;
+  animation: float 3s ease-in-out infinite;
+  margin-bottom:10px;
+}
+@keyframes float {0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);}}
 
-    nav a:hover::after {
-      width: 100%;
-    }
+/* --- Media Gallery --- */
+.media-gallery {
+  display:flex;
+  overflow-x:auto;
+  gap:15px;
+  padding:10px;
+}
+.media-item {
+  flex:0 0 auto;
+  text-align:center;
+  transition:transform 0.3s, box-shadow 0.3s;
+}
+.media-item img, .media-item video, .media-item iframe{
+  border-radius:15px;
+  width:100%;
+  max-width:220px;
+  height:150px;
+  object-fit:cover;
+  border:3px solid transparent;
+  background: linear-gradient(white, white) padding-box, linear-gradient(135deg,#90ee90,#32cd32) border-box;
+  box-shadow:0 0 20px rgba(144,238,144,0.3);
+  transition:0.3s;
+  cursor:pointer;
+  animation: borderGlow 5s infinite alternate;
+}
+@keyframes borderGlow {0%{box-shadow:0 0 15px #90ee90;} 100%{box-shadow:0 0 35px #32cd32;}}
+.media-item:hover { transform:scale(1.05); }
 
-    section {
-      padding: 22px;
-      text-align: center;
-      background: rgba(255, 255, 255, 0.85);
-      margin: 18px;
-      border-radius: 25px;
-      box-shadow: 0 5px 25px rgba(255, 105, 180, 0.25);
-      transition: transform 0.3s, box-shadow 0.3s;
-      animation: fadeIn 1s ease-in;
-    }
+/* --- Contact Form --- */
+form {
+  background: rgba(240,255,240,0.95);
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: inset 0 0 15px rgba(144,238,144,0.2);
+}
+input, textarea{
+  width:100%;
+  margin:8px 0 12px;
+  padding:12px;
+  border:1px solid #90ee90;
+  border-radius:8px;
+  transition:0.3s;
+}
+input:focus, textarea:focus{border-color:#32cd32; outline:none;}
+button{
+  background: linear-gradient(135deg,#98fb98,#32cd32);
+  color:white;
+  border:none;
+  border-radius:12px;
+  padding:10px 22px;
+  cursor:pointer;
+  font-weight:600;
+  transition:0.3s, box-shadow 0.3s;
+}
+button:hover{
+  transform:scale(1.1);
+  background: linear-gradient(135deg, #32cd32, #228b22);
+  box-shadow:0 0 20px #32cd32, 0 0 40px #90ee90;
+  animation: pulse 1s infinite alternate;
+}
+@keyframes pulse {
+  0%{ transform: scale(1.05); box-shadow:0 0 15px #32cd32,0 0 30px #90ee90; }
+  100%{ transform: scale(1.1); box-shadow:0 0 25px #32cd32,0 0 50px #90ee90; }
+}
 
-    section:hover {
-      transform: scale(1.03);
-      box-shadow: 0 10px 30px rgba(255, 105, 180, 0.4);
-    }
+/* --- Bottom Navigation --- */
+.bottom-nav {
+  height:60px;
+  background: rgba(34,139,34,0.85);
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  border-top:2px solid rgba(144,238,144,0.3);
+  position: sticky;
+  bottom:0;
+  width:100%;
+  border-radius:0 0 50px 50px;
+}
+.bottom-nav a {
+  text-decoration:none;
+  color:white;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  font-size:12px;
+  transition:0.3s, text-shadow 0.3s;
+}
+.bottom-nav a i { font-size:20px; }
+.bottom-nav a:hover {
+  transform:scale(1.2);
+  color:#f0fff0;
+  text-shadow:0 0 10px #32cd32, 0 0 20px #90ee90;
+}
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(15px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+footer { text-align:center; font-size:12px; color:#555; margin-top:10px; }
 
-    h2 {
-      color: #ff5fa2;
-      border-bottom: 2px solid #ff85c1;
-      display: inline-block;
-      padding-bottom: 5px;
-      font-weight: 700;
-      margin-bottom: 15px;
-    }
-
-    #home img {
-      border-radius: 50%;
-      margin-top: 10px;
-      box-shadow: 0 0 25px rgba(255,105,180,0.6);
-      animation: float 3s ease-in-out infinite;
-      border: 3px solid #fff;
-    }
-
-    @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0); }
-    }
-
-    .media-gallery {
-      display: flex;
-      overflow-x: auto;
-      gap: 15px;
-      padding: 10px;
-      scroll-behavior: smooth;
-    }
-
-    .media-item {
-      flex: 0 0 auto;
-      text-align: center;
-      transition: 0.3s;
-    }
-
-    .media-item img, .media-item video, .media-item iframe {
-      border-radius: 18px;
-      border: 3px solid transparent;
-      background: linear-gradient(white, white) padding-box,
-                  linear-gradient(135deg, #ff4da6, #ffb6c1) border-box;
-      box-shadow: 0 0 25px rgba(255,105,180,0.3);
-      transition: 0.3s;
-      cursor: pointer;
-    }
-
-    .media-item:hover {
-      transform: scale(1.06);
-    }
-
-    .media-item p {
-      margin-top: 8px;
-      font-weight: 600;
-      color: #ff4da6;
-    }
-
-    iframe {
-      width: 220px;
-      height: 160px;
-      border-radius: 15px;
-    }
-
-    form {
-      background: rgba(255, 230, 240, 0.9);
-      padding: 15px;
-      border-radius: 15px;
-      box-shadow: inset 0 0 15px rgba(255,105,180,0.25);
-    }
-
-    input, textarea {
-      width: 100%;
-      margin: 8px 0 12px;
-      padding: 10px;
-      border: 1px solid #ff69b4;
-      border-radius: 8px;
-      background: #fff;
-      font-size: 14px;
-      font-family: 'Poppins';
-    }
-
-    .form-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-    }
-
-    button {
-      background: linear-gradient(90deg, #ff69b4, #ff85c1, #ffb6c1);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      padding: 10px 20px;
-      font-size: 15px;
-      cursor: pointer;
-      transition: 0.3s;
-      box-shadow: 0 4px 10px rgba(255,105,180,0.4);
-    }
-
-    button:hover {
-      transform: scale(1.08);
-      background: #ff4da6;
-    }
-
-    footer {
-      background: linear-gradient(90deg, #ff4da6, #ff85c1, #ffa6c9);
-      color: white;
-      text-align: center;
-      padding: 18px 10px;
-      font-size: 14px;
-      border-top: 3px solid rgba(255,255,255,0.3);
-      animation: footerPulse 6s infinite alternate;
-    }
-
-    @keyframes footerPulse {
-      0% { background-position: left; }
-      100% { background-position: right; }
-    }
-
-    .footer-icons {
-      margin-bottom: 8px;
-    }
-
-    .footer-icons a {
-      color: white;
-      font-size: 22px;
-      margin: 0 10px;
-      transition: 0.3s;
-    }
-
-    .footer-icons a:hover {
-      transform: scale(1.3);
-      color: #fff7f9;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    /* Modal (Image Zoom) */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 100;
-      padding-top: 60px;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.8);
-    }
-
-    .modal-content {
-      margin: auto;
-      display: block;
-      max-width: 90%;
-      border-radius: 15px;
-      animation: zoomIn 0.4s ease;
-    }
-
-    @keyframes zoomIn {
-      from {transform: scale(0.8); opacity: 0;}
-      to {transform: scale(1); opacity: 1;}
-    }
-
-    #caption {
-      text-align: center;
-      color: #fff;
-      font-weight: 600;
-      font-size: 16px;
-      margin-top: 10px;
-    }
-
-    .close {
-      position: absolute;
-      top: 25px;
-      right: 40px;
-      color: #fff;
-      font-size: 35px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .close:hover {
-      color: #ff85c1;
-    }
-  </style>
+html{scroll-behavior:smooth;}
+</style>
 </head>
 <body>
-  <div class="phone-frame">
-    <header>
-      <h1>Shannon Gale Dela Cruz</h1>
-      <nav>
-        <a href="#home">Home</a>
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
+
+<!-- Floating Leaves -->
+<div class="leaf"></div>
+<div class="leaf"></div>
+<div class="leaf"></div>
+<div class="leaf"></div>
+<div class="leaf"></div>
+
+<!-- iPhone Frame -->
+<div class="iphone-frame">
+  <div class="iphone-notch"></div>
+  <div class="screen">
+
+    <div class="portfolio-name">Dela Cruz Portfolio 🌿</div>
 
     <section id="home">
-      <h2>About Me</h2>
-      <img src="profile.jpg" width="180" height="180">
-      <p>🌸 A creative student passionate about <b>design</b> and <b>technology</b>.</p>
-      <p>💻 Skilled in <b>HTML, PHP, and MySQL</b> — crafting clean and modern web interfaces.</p>
-      <p>🎨 I use <b>Canva</b> and <b>Figma</b> to bring digital ideas to life beautifully.</p>
+      <img src="profile.jpg" alt="Profile Picture">
+      <p>🌱 Creative student passionate about <b>design</b> and <b>technology</b>.</p>
+      <p>💻 Skilled in <b>HTML, PHP, MySQL</b> and web design.</p>
+      <p>🎨 Using <b>Canva</b> and <b>Figma</b> for digital art.</p>
     </section>
 
     <section id="experience">
+      <h2>💼 Experience</h2>
+      <p><b>On-the-Job Training (OJT)</b> — Feb 5–16, 2024</p>
+      <p><b>Location:</b> Moises Padilla</p>
+      <ul style="text-align:left; margin-left:20px;">
+        <li>Edited tarpaulin designs for Fiesta 🌸</li>
+        <li>Designed creative T-shirt prints 👕</li>
+        <li>Joined coding competition 💻</li>
+      </ul>
+    </section>
+
+    <section id="media">
       <h2>Captured Moments 📸</h2>
       <div class="media-gallery">
-        <div class="media-item">
-          <img src="photo2.jpg" width="150" height="150">
-          <p>T-shirt Layout</p>
-        </div>
-        <div class="media-item">
-          <img src="photo1.jpg" width="150" height="150">
-          <p>E-commerce UI</p>
-        </div>
-        <div class="media-item">
-          <img src="photo3.jpg" width="150" height="150">
-          <p>Product Design</p>
-        </div>
+        <div class="media-item"><img src="photo1.jpg"><p>E-commerce UI</p></div>
+        <div class="media-item"><img src="photo2.jpg"><p>T-shirt Layout</p></div>
+        <div class="media-item"><img src="photo3.jpg"><p>Product Design</p></div>
       </div>
 
-      <h2>🎥 My Video Journal</h2>
+      <h2>🎥 Video Journal</h2>
       <div class="media-gallery">
         <div class="media-item">
-          <iframe src="https://www.youtube.com/embed/278IRQ6HSi4?si=2aBEQuLpKcmS-2nA" 
-            title="YouTube video player" frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen>
-          </iframe>
-          <p>My YouTube Project</p>
+          <iframe src="https://www.youtube.com/embed/NSAOrGb9orM" frameborder="0" allowfullscreen></iframe>
+          <p>📹 Nature</p>
         </div>
-
         <div class="media-item">
-          <video width="220" height="160" controls>
-            <source src="video2.mp4" type="video/mp4">
-          </video>
-          <p>About Me</p>
+          <iframe src="https://www.youtube.com/embed/OxqooRcaw8w" frameborder="0" allowfullscreen></iframe>
+          <p>📹 Daydream</p>
         </div>
-
         <div class="media-item">
-          <video width="220" height="160" controls>
-            <source src="video3.mp4" type="video/mp4">
-          </video>
-          <p>Lumad Song</p>
+          <iframe src="https://www.youtube.com/embed/OFYF67NkO4w" frameborder="0" allowfullscreen></iframe>
+          <p>📹 Feelings</p>
         </div>
       </div>
-
-      <h2>🔗 My Links</h2>
-      <ul style="text-align:left; display:inline-block;">
-        <li><a href="https://delacruzshannongalewebsite.my.canva.site/portfolio" target="_blank">Canva Portfolio</a></li>
-        <li><a href="https://www.figma.com/proto/hzNhyOzMHQycfUor1zFlfm/Untitled?node-id=89-87" target="_blank">Figma E-commerce</a></li>
-        <li><a href="https://www.figma.com/proto/n5v20gpb0RLge3E4tG7b7u/Untitled?node-id=1-4" target="_blank">Figma Portfolio</a></li>
-      </ul>
     </section>
 
     <section id="skills">
       <h2>💡 Skills</h2>
-      <ul style="text-align:left; display:inline-block;">
-        <li>💻 Computer Literacy</li>
+      <ul style="text-align:left;">
+        <li>💻 Computer Skills</li>
         <li>🎬 Video & Photo Editing</li>
         <li>🎨 Canva & Figma Design</li>
         <li>🧠 Basic PHP & MySQL</li>
       </ul>
     </section>
 
+    <section id="links">
+      <h2>🔗 My Links</h2>
+      <div style="display:flex; flex-direction:column; gap:10px; align-items:center;">
+        <a href="https://delacruzshannongalewebsite.my.canva.site/portfolio" target="_blank">
+          <button><i class="fab fa-canva"></i> Canva Portfolio</button>
+        </a>
+        <a href="https://www.figma.com/proto/n5v20gpb0RLge3E4tG7b7u/Untitled?node-id=1-4&t=B2CarzcrargfTO5d-1" target="_blank">
+          <button><i class="fab fa-figma"></i> Figma Portfolio</button>
+        </a>
+        <a href="https://www.figma.com/proto/hzNhyOzMHQycfUor1zFlfm/Untitled?node-id=0-1&t=YL3AaPZ3JtZP5nxr-1" target="_blank">
+          <button><i class="fas fa-store"></i> Figma E-Commerce Design</button>
+        </a>
+      </div>
+    </section>
+
     <section id="contact">
       <h2>📩 Contact Me</h2>
       <form action="mailto:delacruzshannongale58@gmail.com" method="post" enctype="text/plain">
-        <label>Full Name:</label>
-        <input type="text" name="name" required>
-        <label>Email:</label>
-        <input type="email" name="email" required>
-        <label>Message:</label>
-        <textarea name="message" rows="4" required></textarea>
-        <div class="form-buttons">
-          <button type="submit"><i class="fas fa-paper-plane"></i> Send</button>
-          <button type="reset"><i class="fas fa-trash"></i> Clear</button>
-        </div>
+        <input type="text" name="name" placeholder="Full Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <textarea name="message" placeholder="Message" rows="4" required></textarea>
+        <button type="submit"><i class="fas fa-paper-plane"></i> Send</button>
       </form>
     </section>
 
-    <footer>
-      <div class="footer-icons">
-        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
-        <a href="mailto:delacruzshannongale58@gmail.com"><i class="fas fa-envelope"></i></a>
-        <a href="tel:09703416827"><i class="fas fa-phone"></i></a>
-      </div>
-      <div>© 2025 Shannon Gale Dela Cruz | Crafted with 💖</div>
-    </footer>
+    <footer>© 2025 Shannon Gale Dela Cruz</footer>
   </div>
 
-  <!-- Image Zoom Modal -->
-  <div id="imgModal" class="modal">
-    <span class="close">&times;</span>
-    <img class="modal-content" id="imgZoom">
-    <div id="caption"></div>
+  <div class="bottom-nav">
+    <a href="#home"><i class="fas fa-home"></i><span>Home</span></a>
+    <a href="#experience"><i class="fas fa-briefcase"></i><span>Experience</span></a>
+    <a href="#media"><i class="fas fa-camera"></i><span>Media</span></a>
+    <a href="#skills"><i class="fas fa-lightbulb"></i><span>Skills</span></a>
+    <a href="#links"><i class="fas fa-link"></i><span>Links</span></a>
+    <a href="#contact"><i class="fas fa-envelope"></i><span>Contact</span></a>
   </div>
+</div>
 
-  <script>
-    const modal = document.getElementById("imgModal");
-    const modalImg = document.getElementById("imgZoom");
-    const captionText = document.getElementById("caption");
-    const closeBtn = document.getElementsByClassName("close")[0];
+<!-- ✅ Zoom Popup -->
+<style>
+.zoom-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.zoom-overlay.active {
+  visibility: visible;
+  opacity: 1;
+}
+.zoom-overlay img {
+  max-width: 90%;
+  max-height: 85%;
+  border-radius: 15px;
+  box-shadow: 0 0 25px #32cd32;
+  animation: zoomIn 0.4s ease;
+}
+@keyframes zoomIn {
+  from {transform: scale(0.6); opacity: 0;}
+  to {transform: scale(1); opacity: 1;}
+}
+</style>
 
-    document.querySelectorAll(".media-item img").forEach(img => {
-      img.addEventListener("click", function() {
-        modal.style.display = "block";
-        modalImg.src = this.src;
-        captionText.innerHTML = this.nextElementSibling.textContent;
-      });
-    });
+<div class="zoom-overlay" id="zoomOverlay">
+  <img id="zoomImage" src="">
+</div>
 
-    closeBtn.onclick = function() {
-      modal.style.display = "none";
-    };
+<script>
+const zoomOverlay = document.getElementById('zoomOverlay');
+const zoomImage = document.getElementById('zoomImage');
+document.querySelectorAll('.media-item img').forEach(img => {
+  img.addEventListener('click', () => {
+    zoomImage.src = img.src;
+    zoomOverlay.classList.add('active');
+  });
+});
+zoomOverlay.addEventListener('click', () => {
+  zoomOverlay.classList.remove('active');
+});
+</script>
 
-    modal.onclick = function(e) {
-      if (e.target === modal) modal.style.display = "none";
-    };
-  </script>
 </body>
 </html>
+Write to Shannon De La Cruz
