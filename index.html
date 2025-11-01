@@ -260,21 +260,20 @@ html { scroll-behavior: smooth; }
 <section id="contact">
   <h2>📩 Contact Me</h2>
   <div style="display:flex; flex-direction:column; gap:12px; align-items:center; margin-top:15px; width:90%;">
-    <!-- Gmail -->
-    <a href="mailto:delacruzshannongale58@gmail.com" class="contact-link">
+    <!-- Gmail (not clickable) -->
+    <div class="contact-link">
       <i class="fas fa-envelope"></i> delacruzshannongale58@gmail.com
-    </a>
-    <!-- Facebook -->
-    <a href="https://www.facebook.com/shannongale.delacruz.1" target="_blank" class="contact-link">
+    </div>
+    <!-- Facebook Name (not clickable) -->
+    <div class="contact-link">
       <i class="fab fa-facebook"></i> Shannon Gale Dela Cruz
-    </a>
-    <!-- Phone -->
-    <a href="tel:+639703416827" class="contact-link">
+    </div>
+    <!-- Phone Number (not clickable) -->
+    <div class="contact-link">
       <i class="fas fa-phone"></i> 09703416827
-    </a>
+    </div>
   </div>
 </section>
-
 <style>
 /* Unified Contact Link Colors */
 .contact-link {
@@ -337,5 +336,5 @@ closeBtn.onclick = function(){ modal.style.display="none"; }
 modal.onclick = function(e){ if(e.target==modal) modal.style.display="none"; }
 </script>
 
-</body>
-  </html>
+</body>                      
+</html>
