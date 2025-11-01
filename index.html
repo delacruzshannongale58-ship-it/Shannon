@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Gale's Portfolio🍒</title>
+<title>Dela Cruz Portfolio 🍓🍒</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
@@ -166,8 +166,6 @@ h2 { color: var(--cherry-dark); border-bottom: 2px solid var(--pink-light); disp
   100% { background-position: 0% 50%; }
 }
 
-form { background: rgba(255,240,245,0.9); padding: 15px; border-radius: 15px; }
-input, textarea { width: 100%; margin: 8px 0 12px; padding: 12px; border: 1px solid var(--pink-light); border-radius: 8px; }
 button { background: linear-gradient(135deg, var(--pink-light), var(--cherry-dark)); color: white; border: none; border-radius: 12px; padding: 10px 22px; cursor: pointer; font-weight: 600; transition: 0.3s; }
 button:hover { transform: scale(1.1); background: linear-gradient(135deg,var(--cherry-dark),var(--strawberry-red)); box-shadow: 0 0 25px var(--strawberry-red); }
 
@@ -259,21 +257,34 @@ html { scroll-behavior: smooth; }
         <a href="https://www.figma.com/proto/hzNhyOzMHQycfUor1zFlfm/Untitled?node-id=0-1&t=YL3AaPZ3JtZP5nxr-1" target="_blank"><button>🍉 E-Commerce Figma Design</button></a>
       </div>
     </section>
-
-    <section id="contact">
-      <h2>📩 Contact Me</h2>
-      <form action="mailto:delacruzshannongale58@gmail.com" method="post" enctype="text/plain">
-        <input type="text" name="name" placeholder="Full Name" required>
-        <input type="email" name="email" placeholder="Email" required>
-        <textarea name="message" placeholder="Message" rows="4" required></textarea>
-        <button type="submit"><i class="fas fa-paper-plane"></i> Send</button>
-      </form>
-    </section>
+<section id="contact">
+  <h2>📩 Contact Me</h2>
+  <div style="display:flex; flex-direction:column; gap:12px; align-items:center; margin-top:15px; width:90%;">
+    <!-- Gmail -->
+    <a href="mailto:delacruzshannongale58@gmail.com" 
+       style="text-decoration:none; color:#d6336c; display:flex; align-items:center; gap:8px; background: rgba(255,240,245,0.9); padding:10px 15px; border-radius:15px; width:100%; max-width:320px; justify-content:flex-start; box-shadow:0 4px 12px rgba(255,77,109,0.25); font-size:16px; word-break: break-all; transition:0.3s;" 
+       onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 20px #ff4d6d';" 
+       onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 12px rgba(255,77,109,0.25)';">
+      <i class="fas fa-envelope" style="font-size:20px;"></i> delacruzshannongale58@gmail.com
+    </a>
+    <!-- Facebook -->
+    <a href="https://www.facebook.com/shannongale.delacruz.1" target="_blank" 
+       style="text-decoration:none; color:#3b5998; display:flex; align-items:center; gap:8px; background: rgba(240,248,255,0.9); padding:10px 15px; border-radius:15px; width:100%; max-width:320px; justify-content:flex-start; box-shadow:0 4px 12px rgba(59,89,152,0.25); font-size:16px; transition:0.3s;" 
+       onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 20px #3b5998';" 
+       onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 12px rgba(59,89,152,0.25)';">
+      <i class="fab fa-facebook" style="font-size:20px;"></i> Shannon Gale Dela Cruz
+    </a>
+    <!-- Phone -->
+    <a href="tel:+639703416827" 
+       style="text-decoration:none; color:#ff4d6d; display:flex; align-items:center; gap:8px; background: rgba(255,240,245,0.9); padding:10px 15px; border-radius:15px; width:100%; max-width:320px; justify-content:flex-start; box-shadow:0 4px 12px rgba(255,77,109,0.25); font-size:16px; transition:0.3s;" 
+       onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 20px #ff4d6d';" 
+       onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 12px rgba(255,77,109,0.25)';">
+      <i class="fas fa-phone" style="font-size:20px;"></i> 09703416827
+    </a>
+  </div>
+</section>
 
     <footer>
-      <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
-      <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="mailto:delacruzshannongale58@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
       <p>© 2025 Dela Cruz🍒</p>
     </footer>
   </div>
@@ -308,4 +319,4 @@ modal.onclick = function(e){ if(e.target==modal) modal.style.display="none"; }
 </script>
 
 </body>
-                               </html>
+  </html>
