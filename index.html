@@ -261,28 +261,47 @@ html { scroll-behavior: smooth; }
   <h2>📩 Contact Me</h2>
   <div style="display:flex; flex-direction:column; gap:12px; align-items:center; margin-top:15px; width:90%;">
     <!-- Gmail -->
-    <a href="mailto:delacruzshannongale58@gmail.com" 
-       style="text-decoration:none; color:#d6336c; display:flex; align-items:center; gap:8px; background: rgba(255,240,245,0.9); padding:10px 15px; border-radius:15px; width:100%; max-width:320px; justify-content:flex-start; box-shadow:0 4px 12px rgba(255,77,109,0.25); font-size:16px; word-break: break-all; transition:0.3s;" 
-       onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 20px #ff4d6d';" 
-       onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 12px rgba(255,77,109,0.25)';">
-      <i class="fas fa-envelope" style="font-size:20px;"></i> delacruzshannongale58@gmail.com
+    <a href="mailto:delacruzshannongale58@gmail.com" class="contact-link">
+      <i class="fas fa-envelope"></i> delacruzshannongale58@gmail.com
     </a>
     <!-- Facebook -->
-    <a href="https://www.facebook.com/shannongale.delacruz.1" target="_blank" 
-       style="text-decoration:none; color:#3b5998; display:flex; align-items:center; gap:8px; background: rgba(240,248,255,0.9); padding:10px 15px; border-radius:15px; width:100%; max-width:320px; justify-content:flex-start; box-shadow:0 4px 12px rgba(59,89,152,0.25); font-size:16px; transition:0.3s;" 
-       onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 20px #3b5998';" 
-       onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 12px rgba(59,89,152,0.25)';">
-      <i class="fab fa-facebook" style="font-size:20px;"></i> Shannon Gale Dela Cruz
+    <a href="https://www.facebook.com/shannongale.delacruz.1" target="_blank" class="contact-link">
+      <i class="fab fa-facebook"></i> Shannon Gale Dela Cruz
     </a>
     <!-- Phone -->
-    <a href="tel:+639703416827" 
-       style="text-decoration:none; color:#ff4d6d; display:flex; align-items:center; gap:8px; background: rgba(255,240,245,0.9); padding:10px 15px; border-radius:15px; width:100%; max-width:320px; justify-content:flex-start; box-shadow:0 4px 12px rgba(255,77,109,0.25); font-size:16px; transition:0.3s;" 
-       onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 20px #ff4d6d';" 
-       onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 12px rgba(255,77,109,0.25)';">
-      <i class="fas fa-phone" style="font-size:20px;"></i> 09703416827
+    <a href="tel:+639703416827" class="contact-link">
+      <i class="fas fa-phone"></i> 09703416827
     </a>
   </div>
 </section>
+
+<style>
+/* Unified Contact Link Colors */
+.contact-link {
+  text-decoration: none;
+  color: #ff4d6d; /* Strawberry-red theme color */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,240,245,0.9);
+  padding: 10px 15px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 320px;
+  justify-content: flex-start;
+  box-shadow: 0 4px 12px rgba(255,77,109,0.25);
+  font-size: 16px;
+  word-break: break-all;
+  transition: 0.3s;
+}
+.contact-link:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #ff4d6d;
+}
+.contact-link i {
+  font-size: 20px;
+}
+</style>
 
     <footer>
       <p>© 2025 Dela Cruz🍒</p>
